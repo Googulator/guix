@@ -76,7 +76,8 @@ MODULES_NOT_COMPILED =				\
   guix/man-db.scm
 
 include gnu/local.mk
-include po/doc/local.mk
+EXTRA_DIST =
+#include po/doc/local.mk
 
 MODULES =					\
   guix/base16.scm				\
@@ -926,7 +927,7 @@ as-derivation:
 SUBDIRS = po/guix po/packages
 BUILT_SOURCES =
 
-include doc/local.mk
+# include doc/local.mk
 
 if BUILD_DAEMON
 
