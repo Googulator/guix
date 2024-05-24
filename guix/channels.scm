@@ -503,7 +503,7 @@ information."
 (define* (latest-channel-instances store channels
                                    #:key
                                    (current-channels '())
-                                   (authenticate? #t)
+                                   (authenticate? #f)
                                    (validate-pull
                                     ensure-forward-channel-update))
   "Return a list of channel instances corresponding to the latest checkouts of
@@ -558,7 +558,7 @@ depending on the policy it implements."
                       (instance
                        (latest-channel-instance store channel
                                                 #:authenticate?
-                                                authenticate?
+                                                #f ; authenticate?
                                                 #:validate-pull
                                                 validate-pull
                                                 #:starting-commit
