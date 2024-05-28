@@ -204,6 +204,11 @@ in the Mozilla clients.")
                     (setenv "USE_IP" "TRUE")
                     (setenv "IP_ADDRESS" "127.0.0.1")
 
+                    ;; Since the test suite is very lengthy, run the test
+                    ;; suite once, not thrice as done by default, by
+                    ;; selecting only the 'standard' cycle.
+                     (setenv "NSS_CYCLES" "standard")
+
                     ;; The "PayPalEE.cert" certificate expires every six months,
                     ;; leading to test failures:
                     ;; <https://bugzilla.mozilla.org/show_bug.cgi?id=609734>.  To
@@ -287,6 +292,11 @@ security standards.")
                          ;; threshold
                          (substitute* "nss/tests/dbtests/dbtests.sh"
                            ((" -lt 5") " -lt 50"))
+
+                         ;; Since the test suite is very lengthy, run the test
+                         ;; suite once, not thrice as done by default, by
+                         ;; selecting only the 'standard' cycle.
+                         (setenv "NSS_CYCLES" "standard")
 
                          ;; The "PayPalEE.cert" certificate expires every six months,
                          ;; leading to test failures:
