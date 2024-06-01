@@ -1634,7 +1634,8 @@ ac_cv_c_float_format='IEEE (little-endian)'
                 (invoke "tar" "xvf" source)
                 (chdir (string-append "glibc-" #$version))))
             (replace 'setenv
-              (lambda* (#:key inputs #:allow-other-keys)
+              ;; FIXME HACK those (display)s are supposed to be debug prints, but their presence somehow fixes the issue I was trying to debug...
+              (lambda* (#:key inputs #:allow-other-keys) (display "GETCWD ") (display (getcwd)) (display "LIBC") (display (assoc-ref inputs "libc")) (newline)
                 (let* ((headers  (assoc-ref inputs "headers"))
                        (libc     (assoc-ref inputs "libc"))
                        (gcc      (assoc-ref inputs "gcc"))
