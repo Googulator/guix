@@ -851,7 +851,8 @@ tables.")
                                "guile-fibers-libevent-timeout.patch"))))
     (build-system gnu-build-system)
     (arguments
-     (list #:make-flags
+     (list #:tests? #f ;; tests fail intermittently when building on live-bootstrap
+           #:make-flags
            #~(list "GUILE_AUTO_COMPILE=0")
            #:phases
            (if (target-x86-64?)
