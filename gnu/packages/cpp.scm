@@ -589,7 +589,7 @@ operating on batches.")
     (arguments
      `(#:configure-flags (list "-DHWY_SYSTEM_GTEST=on"
                                "-DBUILD_SHARED_LIBS=ON")
-       ,@(if (string-prefix? "i686-linux" (or (%current-system)
+       ,@(if (string-prefix? "x86_64-linux" (or (%current-system)
                                               (%current-target-system)))
              '(#:phases
                (modify-phases %standard-phases
