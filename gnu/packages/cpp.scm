@@ -587,8 +587,7 @@ operating on batches.")
         (base32 "0cx38hnislqyd4vd47mlpgjpr1zmpf1fms2bj6nb00fjv53q1sb7"))))
     (build-system cmake-build-system)
     (arguments
-     `(#:configure-flags (list "-DHWY_SYSTEM_GTEST=on"
-                               "-DBUILD_SHARED_LIBS=ON")
+     `(#:configure-flags (list "-DBUILD_SHARED_LIBS=ON")
        #:tests? #f
        ,@(if (string-prefix? "i686-linux" (or (%current-system)
                                               (%current-target-system)))
