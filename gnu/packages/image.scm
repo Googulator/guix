@@ -2614,7 +2614,13 @@ Format) file format decoder and encoder.")
                      (substitute* "lib/jxl/enc_xyb.cc"
                        (("#include \"lib/jxl/enc_xyb.h\"" a)
                         (string-append a "\n#include <atomic>")))))))
-             '())))
+             '(#:phases
+               (modify-phases %standard-phases
+                 (add-after 'unpack 'fix-tests
+                   (lambda _
+                     (substitute* "lib/CMakeLists.txt"
+                       (("include(jxl_tests.cmake)")
+                        ("# not including jxl_tests.cmake because it requires a google-highway with unit tests enabled"))))))))))
     (native-inputs
      (list asciidoc doxygen googletest pkg-config python))
     (inputs
