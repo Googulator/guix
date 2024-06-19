@@ -2619,8 +2619,8 @@ Format) file format decoder and encoder.")
                  (add-after 'unpack 'fix-tests
                    (lambda _
                      (substitute* "lib/CMakeLists.txt"
-                       (("include(jxl_tests.cmake)")
-                        ("# not including jxl_tests.cmake because it requires a google-highway with unit tests enabled"))))))))))
+                       (("include.jxl_tests.cmake.")
+                        "# not including jxl_tests.cmake because it requires a google-highway with unit tests enabled")))))))))
     (native-inputs
      (list asciidoc doxygen googletest pkg-config python))
     (inputs
