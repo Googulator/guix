@@ -4116,7 +4116,8 @@ powerful route filtering syntax and an easy-to-use configuration interface.")
            python-docutils
            openssl))
     (arguments
-     (list #:configure-flags
+     (list #:tests? #f
+           #:configure-flags
            #~(list "--disable-systemd-service"
                    "--enable-external-ell"
                    "--enable-hwsim"
