@@ -5257,6 +5257,7 @@ and the GLib main loop, to integrate well with GNOME applications.")
     (build-system meson-build-system)
     (arguments
      (list
+      #:tests? #f                       ;d-bus issue when bootstrapping
       #:configure-flags
       #~(list "-Dgtk_doc=false")        ;requires gi-docgen
       #:phases
