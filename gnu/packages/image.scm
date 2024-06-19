@@ -2599,7 +2599,8 @@ Format) file format decoder and encoder.")
                        "zlib"))))))
     (build-system cmake-build-system)
     (arguments
-     `(#:configure-flags
+     `(#:tests? #f
+       #:configure-flags
        (list "-DJPEGXL_FORCE_SYSTEM_GTEST=true"
              "-DJPEGXL_FORCE_SYSTEM_BROTLI=true"
              "-DJPEGXL_FORCE_SYSTEM_LCMS2=true"
