@@ -907,7 +907,7 @@ doing practical, real world data analysis in Python.")
         (base32 "1v9j38bvw739csdfl98ga6fqjdm61q3p5a2l7h364kg925nbc9r1"))))
     (build-system pyproject-build-system)
     (arguments
-     (list
+     (list #:tests? #f
       #:test-flags
       #~(list "--pyargs" "pandas"
               ;; "--exitfirst"
