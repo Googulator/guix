@@ -338,6 +338,9 @@ aborting."
               (channel-name channel) start commit))
     ('unrelated
      (warning (G_ "moving channel '~a' from ~a to unrelated commit ~a~%")
+              (channel-name channel) start commit))
+    (_
+     (warning (G_ "moving channel '~a' from ~a to commit ~a~% of unknown relation")
               (channel-name channel) start commit))))
 
 (define (channel-relations old new)
